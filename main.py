@@ -1,7 +1,15 @@
 ''' DEVA === desktop virtual assistant'''
 
+import os 
+import datetime
+from screen import screen
 
 
+loop = True
+while loop :
+    screen()
+
+'''
 robor("olá , sou Deva , é um praser te conhecer , em poderia lhe ajudar ?")
 comando=ouvindo() 
 if "data" in comando :
@@ -13,4 +21,4 @@ elif "pesquisar" in comando :
     os.startfile('C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe')
     datetime.sleep(1)
     
-
+'''
