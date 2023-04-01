@@ -3,11 +3,10 @@
 import os 
 import datetime
 from screen import screen
+from sculpt_speech import Audio
 
 
-loop = True
-while loop :
-    screen()
+screen('boa noite ')
 
 '''
 robor("olá , sou Deva , é um praser te conhecer , em poderia lhe ajudar ?")
