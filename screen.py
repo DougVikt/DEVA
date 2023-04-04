@@ -4,17 +4,24 @@ from PIL import Image, ImageTk
 # OBS : trocar local das imagens de acordo com a necessidade
 
 class ConfigWindow(tk.Toplevel):
-    def __init__(self, parent):
-        super().__init__(parent)
+    def __init__(self):
         self.title("Configurações")
 
         # Cria o widget Label
-        self.label_name = tk.Label(self, text="Nome:")
+        self.label_name = tk.Label(self, text="Name:")
         self.label_name.grid(row=0, column=0)
 
         # Cria o widget Entry
         self.entry_name = tk.Entry(self)
         self.entry_name.grid(row=0, column=1)
+        
+        # Cria o widget Label
+        self.label_lang = tk.Label(self, text="Language:")
+        self.label_lang.grid(row=0, column=2)
+
+        # Cria o widget Entry
+        self.entry_lang = tk.Entry(self)
+        self.entry_lang.grid(row=0, column=3)
 
         # Cria o botão Salvar
         self.button_save = tk.Button(self, text="Salvar", command=self.save_config)
@@ -26,10 +33,14 @@ class ConfigWindow(tk.Toplevel):
 
     def save_config(self):
         # Salva o nome digitado pelo usuário na variável name
-        self.parent.name = self.entry_name.get()
+        self.name = self.entry_name.get()
+        self.lang = self.entry_lang.get()
         self.destroy()
 
-
+    def saved(self):
+        user= []
+        user.append(self.name , self.lang)
+        return user
 
 
 
@@ -43,7 +54,7 @@ def screen(text = str):
     screen_b.pack(padx=2,pady=2)
 
     def open_config():
-        config_window = ConfigWindow(parent=screen)
+        config_window = ConfigWindow()
         config_window.grab_set()
 
 
