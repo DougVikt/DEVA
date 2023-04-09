@@ -2,11 +2,14 @@
 
 import os 
 import datetime
-from screen import screen
+from screen import Screen , ConfigWindow
 from sculpt_speech import Audio
 
 
-screen('boa noite ')
+
+scr = Screen()
+scr.text("hi !")
+scr.mainloop()
 
 '''
 robor("olá , sou Deva , é um praser te conhecer , em poderia lhe ajudar ?")
