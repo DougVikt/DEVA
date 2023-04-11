@@ -68,12 +68,12 @@ class Screen(tk.Tk):
 
         # Criando um botão e posicionando-o sobre a imagem 
         self.image_bt = tk.PhotoImage(file="C:/Users/USUARIO/Documents/PROGRAMAÇÃO/CODIGOS2/DEVA/settings.png")
-        self.button = tk.Button(self.screen_b, image=self.image_bt , command=self.open_config , width=10 , height=10)
+        self.button = tk.Button(self.screen_b, image=self.image_bt , command=self.open_config() , width=10 , height=10)
         self.button.place(x=10, y=10, anchor="nw")
         
         
     # Adiciona o texto à janela
-        self.label_text = tk.Label(self.screen_b, text=self.text ,bd=12,bg='black',fg='white' )
+        self.label_text = tk.Label(self.screen_b, text=self.text() ,bd=12,bg='black',fg='white' )
         self.label_text.grid()
 
         # Execute a janela
