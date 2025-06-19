@@ -13,7 +13,7 @@ class Listener:
         self.microphone = sr.Microphone()
         self.is_listening = False
         self.use_offline = False
-        self.offline_model_path = ""  # Caminho para modelo pocketsphinx
+        self.offline_model_path = "path/sphinx4"  # Caminho para modelo pocketsphinx
         self.listen_thread = None
         self.lock = threading.Lock()
 
