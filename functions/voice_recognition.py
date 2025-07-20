@@ -1,4 +1,4 @@
-from speak import Speech # Importa a classe Speech do módulo speak
+from .speak import Speech # Importa a classe Speech do módulo speak
 import speech_recognition as sr
 import threading
 import time
@@ -59,20 +59,17 @@ class Listener:
                     pass  # Timeout silencioso
                 time.sleep(0.1)  # Evita uso excessivo de CPU
 
-    def start_listening(self):
-        """Inicia a captura de áudio em segundo plano."""
-        if not self.is_listening:
+    def listening(self,start: bool = True):
+        # Inicia a captura de áudio em segundo plano.
+        if start:
             self.is_listening = True
             self.use_offline = False if self.check_internet() else True
             self.listen_thread = threading.Thread(target=self.listen_background, daemon=True)
             self.listen_thread.start()
-            print(f"Captura de áudio iniciada ({'offline' if self.use_offline else 'online'}).")
-
-    def stop_listening(self):
-        """Para a captura de áudio."""
-        if self.is_listening:
+        # para a captura de áudio em segundo plano.
+        else:
             self.is_listening = False
             if self.listen_thread:
                 self.listen_thread.join()
                 self.listen_thread = None
-            print("Captura de áudio parada.")
+          
